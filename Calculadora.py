@@ -9,19 +9,19 @@ class VentanaCalculadora(tk.Tk):
     def __init__(self):
         super(VentanaCalculadora, self).__init__()
         self.title("Calculadora Logica")
-        self.geometry('300x330')
+        self.geometry('450x320')
         self.config(bd=15)
-        self.config(background="#555156")
+        self.config(background="#FFF057")
         self.resizable(False, False)
         self.entrada = tk.StringVar()
 
         self.pantalla = tk.Entry(
             self,
-            font=("Times", 16),
-            background="#9ADCC9",
-            fg='#000000',
+            font=("Arial", 14),
+            background="#000000",
+            fg='#FFFFFF',
             borderwidth=5,
-            width=24,
+            width=35,
             textvariable=self.entrada
         )
         self.pantalla.grid(row=0, column=0, columnspan=4,  pady=25)
@@ -82,10 +82,10 @@ class VentanaCalculadora(tk.Tk):
         self.configurar_boton(btnParentesisD)
         btnParentesisD.grid(row=5, column=1, pady=5)
 
-        btnManual= tk.Button(self, text='MANUAL_USO', command=self.manual)
+        btnManual= tk.Button(self, text='Instrucciones', command=self.manual)
         self.configurar_boton(btnManual)
         btnManual.grid(row=5, column=2, columnspan = 2)
-        btnManual.config(width = 10)
+        btnManual.config(width = 15)
 
         self.mainloop()
 
@@ -102,12 +102,11 @@ class VentanaCalculadora(tk.Tk):
               "Los parentesis '[' y ']'  funcionan para encerrar otras proposiciones,"+'\n' +
               "el uso correcto de dichos parentesis radica en usarlos para los extremos"+'\n' +
               "EJEMPLO:"+'\n' +
-              "[(pvq)=>r] = q" +'\n'+'\n'+
+              "[(pvq)=>r] => q" +'\n'+'\n'+
               "Las variables logicas corresponden a:"+'\n'+"'p', 'q' y 'r'"+'\n'+'\n'+
               "Los operadores logicos corresponden a "+'\n'+ "'^', 'v', '→' y '↔'"+'\n'+
               "respectivamente corresponden a"+'\n'+"'and', 'or', 'si, entonces' y 'si, y solo si'"+'\n'+'\n'+
-              "Con 'AC' limpia la pantalla"+'\n'+"Con '=' brinda la tabla de verdad en consola"+'\n'+'\n'+
-               "ESPERAMOS HABER SIDO DE AYUDA, UWU")
+              "Con 'AC' limpia la pantalla"+'\n'+"Con '=' brinda la tabla de verdad en consola"+'\n')
 
     def mostrar_resultado(self):
         try:
@@ -128,9 +127,9 @@ class VentanaCalculadora(tk.Tk):
 
     def configurar_boton(self, boton):
         boton.config(
-            font=('Times', 13, 'bold italic'),
-            bg='#AC7FB7',
-            width=3,
+            font=('Arial', 12, 'bold'),
+            bg='#000000',
+            width=5,
             height=1,
             fg='#cae8d5',
             padx=7,
